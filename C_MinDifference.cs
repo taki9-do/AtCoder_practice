@@ -46,6 +46,7 @@ namespace _210731_C_MinDifference
 
             Console.WriteLine(min);
 
+            
         }
     }
 }
