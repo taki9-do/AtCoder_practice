@@ -72,7 +72,6 @@ namespace _210717_C_ColorfulCandies
 
             Console.WriteLine(ans);
 
-
         }
     }
 }
