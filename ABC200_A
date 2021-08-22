@@ -1,0 +1,12 @@
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    
+    cout<<(N+99)/100<<endl;
+
+}
