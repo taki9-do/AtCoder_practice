@@ -1,0 +1,14 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    double A,B;
+    cin>>A>>B;
+    
+
+    cout<<(double)(1-B/A)*100<<endl;
+
+
+}
