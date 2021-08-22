@@ -1,0 +1,10 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void){
+    // Your code here!
+    int a,b,c;
+    cin>>a>>b>>c;
+    cout<<21-(a+b+c)<<endl;
+
+}
