@@ -1,0 +1,11 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void){
+    // Your code here!
+    int A,B;
+    cin>>A>>B;
+    double C=(double)(A-B)/3+B;
+
+    cout << C << endl;
+}
