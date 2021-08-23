@@ -1,0 +1,12 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    int N,W;
+
+    cin>>N>>W;
+    cout<<N/W<<endl;
+    
+}
