@@ -1,0 +1,16 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    int A,B,C;
+    cin>>A>>B>>C;
+    
+    if(C==0){
+        cout<<(A>B?"Takahashi":"Aoki")<<endl;
+    }
+    else if(C==1){
+        cout<<(A>=B?"Takahashi":"Aoki")<<endl;
+    }
+}
