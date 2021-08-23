@@ -1,0 +1,26 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    string A,B;
+    //int A,B;
+
+    cin>>A>>B;
+    
+    int SA=(A[0] - '0') + (A[1] - '0') + (A[2] - '0');
+    int SB=(B[0] - '0') + (B[1] - '0') + (B[2] - '0');
+
+
+    /*while(A>0){
+        SA+=A%10;
+        SB+=B%10;
+        A/=10;
+        B/=10;
+    }*/
+    
+
+    cout<<(SA>=SB?SA:SB)<<endl;
+    
+}
