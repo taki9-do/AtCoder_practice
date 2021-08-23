@@ -1,0 +1,12 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    string C;
+    cin>>C;
+    
+    cout<<(C[0]==C[1]&&C[1]==C[2]?"Won":"Lost")<<endl;
+    
+}
