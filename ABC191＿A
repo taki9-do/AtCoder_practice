@@ -1,0 +1,15 @@
+#include <iostream>
+#include<math.h>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    int V,T,S,D;
+    cin>>V>>T>>S>>D;
+    
+    //3項演算子
+    cout<<(V*T<=D&&D<=V*S?"No":"Yes")<<endl;
+    //if(V*T<=D&&D<=V*S) cout<<"No"<<endl;
+    //else cout<<"Yes"<<endl;
+
+}
