@@ -1,0 +1,12 @@
+#include <iostream>
+#include<math.h>
+#include <algorithm>
+
+using namespace std;
+int main(void){
+    // Your code here!
+    int A,B;
+    cin>>A>>B;
+    cout<<(2*A+100)-B<<endl;
+    
+}
