@@ -1,0 +1,36 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+
+using namespace std;
+
+#define ll long long
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    
+    vector<ll> A;
+    
+    for(int i=0;i<N;i++)
+    {
+        ll temp;
+        cin>>temp;
+        A.push_back(temp);
+    }
+    
+    vector<ll> Temp_A=A;
+    sort(A.begin(),A.end(),greater<ll>());
+    
+    int index;
+    for(int i=0;i<N;i++){
+        if(A[1]==Temp_A[i]){
+            index=i;
+            break;
+        }
+    }
+    
+    cout<<index+1<<endl;
+
+}
