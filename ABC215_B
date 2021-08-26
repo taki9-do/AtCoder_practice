@@ -1,0 +1,17 @@
+#include <iostream>
+#include<math.h>
+using namespace std;
+int main(void){
+    // Your code here!
+    long long N,sum=2;
+    cin>>N;
+    
+    int count=0;
+    
+    while(sum<=N){
+        count++;
+        sum*=2;
+    }
+    
+    cout <<  count<< endl;
+}
