@@ -1,0 +1,31 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+
+using namespace std;
+
+#define ll long long
+int main(void){
+    // Your code here!
+   string X;
+   cin>>X;
+   
+   bool step=true,same=true;
+   
+   for(int i=0;i<X.size()-1;i++){
+        if((X[i]+1)%10!=(X[i+1])%10){
+            step=false;
+        }
+        if(X[i]!=X[i+1]){
+            same=false;
+        }
+        
+    }
+    
+    
+    if(step==true||same==true) cout<<"Weak"<<endl;
+    else cout<<"Strong"<<endl;
+
+
+}
