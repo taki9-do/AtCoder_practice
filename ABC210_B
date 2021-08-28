@@ -1,0 +1,23 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+
+using namespace std;
+
+#define ll long long
+int main(void){
+    // Your code here!
+   ll N;
+   string S;
+   cin>>N>>S;
+   
+   for(int i=0;i<N;i++){
+       if(S[i]=='1'){
+           if(i%2==0) cout<<"Takahashi"<<endl;
+           else cout<<"Aoki"<<endl;
+           break;
+       }
+   }
+}
