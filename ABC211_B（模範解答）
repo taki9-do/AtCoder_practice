@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+signed main(){
+    vector<string>s(4);
+    for(int i=0;i<=3;i++)cin>>s[i];
+    for(int i=0;i<=3;i++){
+        for(int j=0;j<=3;j++){
+            if(i!=j && s[i]==s[j]){
+                cout<<"No"<<endl;
+                return 0;//プログラムを終了する
+            }
+        }
+    }
+    cout<<"Yes"<<endl;
+    return 0;
+}
