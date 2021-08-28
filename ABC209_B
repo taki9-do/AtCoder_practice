@@ -22,3 +22,4 @@ int main(void){
    if(X>=0) cout<<"Yes"<<endl;
    else cout<<"No"<<endl;
 }
+
