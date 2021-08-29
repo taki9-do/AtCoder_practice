@@ -1,0 +1,31 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+
+using namespace std;
+
+#define ll long long
+
+int main(void){
+    // Your code here!
+   ll A,B,C,D;
+   cin>>A>>B>>C>>D;
+   ll ball_blue=A,ball_red=0;
+   
+   for(int i=0;i<A;i++){
+       ball_blue+=B;
+       ball_red+=C;
+       
+       if(ball_blue<=D*ball_red){
+           cout<<i+1<<endl;
+           return 0;
+       }
+   }
+   cout<<-1<<endl;
+
+   
+   
+   
+}
