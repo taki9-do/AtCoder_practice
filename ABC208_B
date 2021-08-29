@@ -1,0 +1,36 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+
+using namespace std;
+
+#define ll long long
+
+
+int factorialYen(int a){
+    int b=1;
+    for(int i=1;i<=a;i++) b*=i;
+    return b;
+}
+
+int main(void){
+    // Your code here!
+   ll P;
+   cin>>P;
+   vector<int> Yen;
+   for(int i=0;i<10;i++){
+       Yen.push_back(factorialYen(i+1));
+   }
+   
+   int count=0;
+   for (int i = 9; i >= 0; i--) {
+    while (P >= Yen[i]) {
+      count++;
+      P -= Yen[i];
+    }
+  }
+   
+   cout<<count<<endl;
+}
