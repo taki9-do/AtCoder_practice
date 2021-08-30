@@ -1,0 +1,39 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+using namespace std;
+ 
+#define ll long long
+ 
+int op_A(int sum){
+    sum++;
+    cout<<"A";
+    return sum;
+}
+ 
+int op_B(int sum){
+    sum*=2;
+    cout<<"B";
+    return sum;
+}
+ 
+int main(void){
+    // Your code here!
+    ll N,sum=0;
+    cin>>N;
+    sum=op_A(sum);
+    
+    while(N!=sum){
+        if((double)(N/sum)>=2){
+            sum=op_B(sum);
+        }
+        else{
+            sum=op_A(sum);
+        }
+    }
+    
+    //cout<<"No"<<endl;
+    //return 0;
+}
