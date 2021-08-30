@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main(void){
+    // Your code here!
+    double XY;
+    cin>>XY;
+    int X,Y;
+    X=(int)(XY*10)/10;
+    Y=(int)(XY*10)%10;
+    
+    if(Y>=0&&Y<=2) cout<<X<<"-"<<endl;
+    else if(Y>=3&&Y<=6) cout<<X<<endl;
+    else if(Y>=7&&Y<=9) cout<<X<<"+"<<endl;
+}
