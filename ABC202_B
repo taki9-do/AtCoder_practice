@@ -1,0 +1,23 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+#include <string>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    string S;
+    cin>>S;
+    string temp=S;
+    reverse(temp.begin(),temp.end());
+    
+    for(int i=0;i<S.size();i++){
+        if(temp[i]=='6') temp[i]='9';
+        else if(temp[i]=='9') temp[i]='6';
+
+    }
+    
+    cout<<temp<<endl;
+}
