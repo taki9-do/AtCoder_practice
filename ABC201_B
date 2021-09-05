@@ -1,0 +1,35 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+#include <set>
+using namespace std;
+#define ll long long
+
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<string> Name;
+    vector<ll> Height;
+    set<ll> st;
+
+    for(int i=0;i<N;i++){
+        string name;
+        ll height;
+        cin>>name>>height;
+        Name.push_back(name);
+        Height.push_back(height);
+        st.insert(height);
+    }
+    
+    auto itr = st.end();
+    itr--;
+    itr--;
+    for(int i=0;i<N;i++){
+        if(Height[i]==*itr) cout<<Name[i]<<endl;
+    }
+    
+    //cout<<mp.begin();
+}
