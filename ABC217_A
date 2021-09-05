@@ -1,0 +1,15 @@
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+#include <string>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    string S,T;
+    cin>>S>>T;
+    
+    if(S<T) cout<<"Yes"<<endl;
+    else cout<<"No"<<endl;
+}
