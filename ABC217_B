@@ -1,0 +1,21 @@
+#include <iostream>
+#include<math.h>
+#include<vector>
+#include <algorithm>
+#include <map>  
+#include <string>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    string S1,S2,S3;
+    cin>>S1>>S2>>S3;
+    string S[4]={"ABC" , "ARC" , "AGC" , "AHC"};
+    
+    for(int i=0;i<4;i++){
+        if(S1==S[i]) continue;
+        else if(S2==S[i]) continue;
+        else if(S3==S[i]) continue;
+        else cout<<S[i]<<endl;
+    }
+}
