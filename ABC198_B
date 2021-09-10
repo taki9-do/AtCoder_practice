@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    string N,temp;
+    cin>>N;
+    temp=N;
+    ll count=0;
+    
+    
+    while(count<N.size()){
+        bool flag=true;
+        for(int i=0;i<N.size();i++){
+            if (temp[i]!=temp[temp.size()-1-i]){
+                flag=false;
+                break;
+            }
+        }
+        if(flag==true){
+            cout<<"Yes"<<endl;
+            return 0;
+        }
+        temp.insert(0,"0");
+        count++;
+    }
+    
+    cout<<"No"<<endl;
+    
+}
