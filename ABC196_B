@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    string X;
+    cin>>X;
+    
+    if(X.find('.')==string::npos) cout<<X;
+    else{
+        ll xx=X.find('.');
+        X.erase(xx,X.size());
+        cout<<X;
+    }
+    
+    
+}
