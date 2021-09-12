@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+ 
+int main(void){
+    // Your code here!
+    //int H,W,X,Y;
+    //cin>>H>>W>>X>>Y;
+    int P[26];
+    for(int i=0;i<26;i++) {
+        cin>>P[i];
+        P[i]--;
+    }
+    
+    
+    for(int i=0;i<26;i++) {
+        char c=97+P[i];
+        cout<<c;
+    }
+    
+}
