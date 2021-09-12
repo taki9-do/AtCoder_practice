@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    ll N,X;
+    cin>>N>>X;
+    vector<ll> A(N);
+    for(int i=0;i<N;i++) cin>>A[i];
+    
+    //指定要素削除使えない？
+    //erase(A,X);
+    
+    for(int i=0;i<A.size();i++){
+        if(A[i]==X) continue;
+        cout<<A[i]<<" ";
+    }
+    
+    
+    
+    
+}
