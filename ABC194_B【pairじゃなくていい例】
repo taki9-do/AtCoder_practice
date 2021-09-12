@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<pair<ll,ll>> A(N),B(N);
+    for(int i=0; i<N; i++) {
+        cin >> A[i].first >> B[i].first;
+        A[i].second=i;
+        B[i].second=i;
+    }
+    sort(A.begin(),A.end());
+    sort(B.begin(),B.end());
+    
+    ll min_time=1e9;
+    
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            min_time = min(min_time, A[i].second == B[j].second ? A[i].first + B[j].first : max(A[i].first, B[j].first));
+        }
+    }
+    
+    cout<<min_time;
+    
+    
+    
+}
