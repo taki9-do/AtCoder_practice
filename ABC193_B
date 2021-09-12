@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<ll> A(N),P(N),X(N),Res(N);
+    for(int i=0; i<N; i++){
+        cin >> A[i] >> P[i]>>X[i];
+        Res[i]=X[i]-A[i];
+    } 
+    
+    ll min_pay=1e9;
+    for(int i=0;i<N;i++){
+        if(Res[i]>0) min_pay=min(P[i],min_pay);
+    }
+    if(min_pay==1e9) cout<<-1;
+    else cout<<min_pay;
+    
+    
+    
+    
+}
