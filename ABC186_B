@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main(void){
+    // Your code here!
+    int H,W;
+    cin>>H>>W;
+    int min_tile=1e6;
+    vector<vector<int>> A(H, vector<int>(W));
+    for(int i=0;i<H;i++){
+        for(int j=0;j<W;j++) {
+            cin>>A.at(i).at(j);
+            min_tile=min(min_tile,A.at(i).at(j));
+        }
+    }
+    
+    int sum_tile=0;
+    for(int i=0;i<H;i++){
+        for(int j=0;j<W;j++) {
+            if(A.at(i).at(j)!=min_tile){
+                sum_tile+=A.at(i).at(j)-min_tile;
+                A.at(i).at(j)=min_tile;
+            }
+        }
+    }
+    
+    cout<<sum_tile<<endl;
+}
