@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll Sx,Sy,Gx,Gy;
+    cin>>Sx>>Sy>>Gx>>Gy;
+    
+    //傾きaと傾きbの絶対値が一致したら正解として、式を導出
+    double P=(double)(Sx*Gy+Sy*Gx)/(double)(Sy+Gy);
+    //double型の出力
+    //double型を出力する場合、通常通りcoutで出力してしまうと適当な桁で四捨五入されて表示されてしまいます。
+    //途中の桁まで四捨五入せずに確実に表示したい場合、以下のように書きます。
+    cout << fixed << setprecision(10);
+    cout<<P;
+}
