@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N,X;
+    cin>>N>>X;
+    string S;
+    cin>>S;
+    
+    rep(i,N){
+        if(S[i]=='o'){
+            X++;
+        }
+        else if(S[i]=='x'){
+            X--;
+            X=max(0,X);
+        }
+    }
+    cout<<X;
+}
