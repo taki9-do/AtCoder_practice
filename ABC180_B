@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<int> X(N);
+    rep(i,N) cin>>X[i];
+    
+    ll dis_Man=0;
+    double dis_Euc=0;
+    int dis_Cheby=abs(X[1]);
+    rep(i,N){
+        dis_Man+=abs(X[i]);
+        dis_Euc+=pow(X[i],2.0);
+        dis_Cheby=max(dis_Cheby,abs(X[i]));
+    }
+    
+    dis_Euc=sqrt(dis_Euc);
+    
+    cout<<dis_Man<<endl;
+    cout << fixed << setprecision(10);
+    cout<<dis_Euc<<endl;
+    cout<<dis_Cheby;
+}
