@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<int> A(N),B(N);
+    rep(i,N) cin>>A[i]>>B[i];
+    
+    ll sum=0;
+    rep(i,N){
+        double mid=0;
+        ll count=0;
+        mid=(A[i]+B[i])/2.0;
+        count=B[i]-A[i]+1;
+        sum+=mid*count;
+    }
+    
+    cout<<sum;
+}
