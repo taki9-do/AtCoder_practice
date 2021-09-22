@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<ll> S(N),T(N),X(N);
+    rep(i,N) cin>>S[i];
+    rep(i,N) cin>>T[i];
+    copy(T.begin(), T.end(),X.begin());
+    
+    for(int i=1;i<N*2;i++){
+        ll temp=S[(i-1)%N]+X[(i-1)%N];
+        X[i%N]=min(X[i%N],temp);
+    }
+    
+    rep(i,N) cout<<X[i]<<endl;
+
+}
