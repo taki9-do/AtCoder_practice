@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N,K;
+    cin>>N>>K;
+    vector<ll> c(N),temp(N);
+    map<ll,ll> mp;
+    rep(i,N){
+        cin>>c[i];
+        mp[c[i]]=0;
+        temp[i]=c[i];
+    } 
+    sort(temp.begin(),temp.end());
+    
+    ll zentai=K/N,res_K=K%N;
+    rep(i,res_K) mp[temp[i]]++;
+    
+    rep(i,N) cout<<zentai+mp[c[i]]<<endl;
+    
+}
