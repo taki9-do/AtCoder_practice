@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N,M;
+    cin>>N>>M;
+    vector<ll> A(N),B(M);
+    rep(i,N) cin>>A[i];
+    rep(i,M) cin>>B[i];
+    ll min_diff=1e9;
+    //ll temp=1e6;
+    
+    sort(A.begin(),A.end());
+    sort(B.begin(),B.end());
+    
+    int it_A=0,it_B=0;
+    
+    while ((it_A < N) && (it_B < M)){
+        min_diff=min(min_diff,abs(A[it_A]-B[it_B]));
+        if(A[it_A]>B[it_B]) it_B++;
+        else it_A++;
+    }
+    
+    cout<<min_diff<<endl;
+}
