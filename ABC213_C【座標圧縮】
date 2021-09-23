@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll H,W,N;
+    cin>>H>>W>>N;
+    vector<ll> A(N),B(N);
+    rep(i,N) cin>>A[i]>>B[i];
+    
+    //行の整理
+    vector<int> ys;
+    rep(i,N) ys.push_back(A[i]);
+    //ソート
+    sort(ys.begin(),ys.end());
+    //重複を削除
+    ys.erase(unique(ys.begin(),ys.end()), ys.end());
+    //座標圧縮。
+    //lower_bound(ソート済みの検索対象の配列,keyの値)
+    rep(i,N) A[i] = lower_bound(ys.begin(),ys.end(), A[i]) - ys.begin();
+
+    vector<int> xs;
+    rep(i,N) xs.push_back(B[i]);
+    sort(xs.begin(),xs.end());
+    xs.erase(unique(xs.begin(),xs.end()), xs.end());
+    rep(i,N) B[i] = lower_bound(xs.begin(),xs.end(), B[i]) - xs.begin();
+
+    rep(i,N) printf("%d %d\n", A[i] + 1, B[i] + 1);
+    
+    
+    
+
+}
