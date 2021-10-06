@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;
+    cin>>N;
+    vector<ll> A(N);
+    rep(i,N) cin>>A[i];
+    
+    vector<ll> count(200);
+    rep(i,N){
+        count[A[i]%200]++;
+    }
+    
+    ll ans=0;
+    rep(i,200){
+        if(count[i]!=0){
+            ans+=(count[i]*(count[i]-1))/2;
+        }
+        
+    }
+    cout<<ans;
+}
