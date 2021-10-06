@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N,Q;
+    string S;
+    cin>>N>>S>>Q;
+    vector<ll> T(Q),A(Q),B(Q);
+    rep(i,Q){
+        ll a,b;
+        cin>>T[i]>>a>>b;
+        A[i]=a-1;
+        B[i]=b-1;
+    }
+    
+    string S_temp1=S,S_temp2=S;
+    S_temp1.erase(S_temp1.begin()+N,S_temp1.end());
+    S_temp2.erase(S_temp2.begin(),S_temp2.begin()+N);
+    
+    rep(i,Q){
+        if(T[i]==1){
+            if(A[i]<N&&B[i]<N) swap(S_temp1[A[i]],S_temp1[B[i]]);
+            else if(A[i]<N&&N<=B[i]) swap(S_temp1[A[i]],S_temp2[B[i]%N]);
+            else if(N<=A[i]&&N<=B[i]) swap(S_temp2[A[i]%N],S_temp2[B[i]%N]);
+        }
+        else if(T[i]==2) swap(S_temp1, S_temp2);
+    }
+    
+    cout<<S_temp1+S_temp2;
+    
+    
+}
