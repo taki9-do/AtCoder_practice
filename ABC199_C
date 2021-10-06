@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N,Q;
+    string S;
+    cin>>N>>S>>Q;
+    vector<ll> T(Q),A(Q),B(Q);
+    rep(i,Q){
+        ll a,b;
+        cin>>T[i]>>a>>b;
+        A[i]=a-1;
+        B[i]=b-1;
+    }
+    
+    string S_temp1=S,S_temp2=S;
+    S_temp1.erase(S_temp1.begin()+N,S_temp1.end());
+    S_temp2.erase(S_temp2.begin(),S_temp2.begin()+N);
+    //temp1が前の時1,後ろの時0
+    bool flag_temop1_front=true;
+    
+    //cout<<S<<endl;
+    rep(i,Q){
+        if(T[i]==1){
+            if(A[i]<N&&B[i]<N){
+                if(flag_temop1_front==true){
+                    char temp=S_temp1[A[i]];
+                    S_temp1[A[i]]=S_temp1[B[i]];
+                    S_temp1[B[i]]=temp;
+                }
+                else{
+                    char temp=S_temp2[A[i]];
+                    S_temp2[A[i]]=S_temp2[B[i]];
+                    S_temp2[B[i]]=temp;
+                }
+            }
+            else if(A[i]<N&&N<=B[i]){
+                if(flag_temop1_front==true){
+                    char temp=S_temp1[A[i]];
+                    S_temp1[A[i]]=S_temp2[B[i]%N];
+                    S_temp2[B[i]%N]=temp;
+                }
+                else{
+                    char temp=S_temp2[A[i]];
+                    S_temp2[A[i]]=S_temp1[B[i]%N];
+                    S_temp1[B[i]%N]=temp;
+                }
+            }
+            else if(N<=A[i]&&N<=B[i]){
+                if(flag_temop1_front==true){
+                    char temp=S_temp2[A[i]%N];
+                    S_temp2[A[i]%N]=S_temp2[B[i]%N];
+                    S_temp2[B[i]%N]=temp;
+                }
+                else{
+                    char temp=S_temp1[A[i]%N];
+                    S_temp1[A[i]%N]=S_temp1[B[i]%N];
+                    S_temp1[B[i]%N]=temp;
+                }
+            }
+        }
+        else if(T[i]==2) flag_temop1_front= !flag_temop1_front;
+    }
+    
+    if(flag_temop1_front==true) cout<<S_temp1+S_temp2;
+    else cout<<S_temp2+S_temp1;
+    
+}
