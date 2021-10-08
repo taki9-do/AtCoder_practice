@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll R,X,Y;
+    cin>>R>>X>>Y;
+    double dis=sqrt(pow(X,2)+pow(Y,2));
+    
+    if(dis<R) cout<<2;
+    else cout<<ceil(dis/R);
+
+}
