@@ -1,0 +1,15 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int main(void){
+    // Your code here!
+    string N;
+    cin>>N;
+    
+    if(N.size()==1) cout<<"000"<<N;
+    else if(N.size()==2) cout<<"00"<<N;
+    else if(N.size()==3) cout<<"0"<<N;
+    else if(N.size()==4) cout<<N;
+    
+    
+}
