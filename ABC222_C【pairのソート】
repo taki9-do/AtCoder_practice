@@ -1,0 +1,58 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N,M;
+    cin>>N>>M;
+    vector<string> A(2*N);
+    rep(i,2*N) cin>>A[i];
+    
+    //firstで降順、secondで昇順にするには、
+    //secondにマイナスをかけておく
+    vector<pair<int,int>> count(2*N);
+    rep(i,2*N) {
+        count[i].first=0;
+        count[i].second=-i;
+    }
+    
+    rep(j,M) for(int i=0;i<2*N;i+=2){
+        int index1=-count[i].second;
+        int index2=-count[i+1].second;
+        char P1=A[index1][j];
+        char P2=A[index2][j];
+        
+        
+        if(P1=='G'){
+            if(P2=='P'){
+                count[i+1].first++;
+            }
+            else if(P2=='C'){
+                count[i].first++;
+            }
+        }
+        else if(P1=='C'){
+            if(P2=='G'){
+                count[i+1].first++;
+            }
+            else if(P2=='P'){
+                count[i].first++;
+            }
+        }
+        else if(P1=='P'){
+            if(P2=='C'){
+                count[i+1].first++;
+            }
+            else if(P2=='G'){
+                count[i].first++;
+            }
+        }
+        sort(count.begin(),count.end(),std::greater{});
+    }
+    
+    //マイナスをかけて、＋１すればもとどおり
+    rep(i,2*N){
+        cout<<(-count[i].second)+1<<endl;
+    }
+}
