@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+
+ll g1(ll x){
+    string g1=to_string(x);
+    sort(g1.rbegin(),g1.rend());
+    return stoll(g1);
+}
+ll g2(ll x){
+    string g2=to_string(x);
+    sort(g2.begin(),g2.end());
+    return stoll(g2);
+}
+ll f(ll x){
+    ll a=g1(x)-g2(x);
+    return a;
+}
+int main(void){
+    // Your code here!
+    ll N,K,temp;
+    cin>>N>>K;
+    temp=N;
+    rep(i,K) temp = f(temp);
+    cout<<temp;
+}
