@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;\
+//敗者記録、最後の対決の敗者がわかればいい
+ll loser;
+
+
+vector<ll> tournament(vector<ll> A){
+    vector<ll> result;
+    for(int i=0;i<A.size()/2;i++){
+        ll temp=max(A[2*i],A[2*i+1]);
+        loser=min(A[2*i],A[2*i+1]);
+        result.push_back(temp);
+    }
+    return result;
+}
+
+int main(void){
+    int N;
+    cin>>N;
+    vector<ll> A(1<<N);
+    rep(i,1<<N) cin>>A[i];
+    vector<ll> winer=A;
+    
+    rep(i,N) winer=tournament(winer);
+    rep(i,A.size()) if(A[i]==loser) cout<<i+1;
+    
+}
