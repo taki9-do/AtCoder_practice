@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string S,min_S,max_S,temp;
+    cin>>S;
+    temp=S;
+    min_S=S;
+    rep(i,S.size()){
+        char x=temp[0];
+        temp.push_back(x);
+        temp.erase(temp.begin());
+        
+        //cout<<temp<<endl;
+        min_S=min(min_S,temp);
+        max_S=max(max_S,temp);
+    }
+    
+    cout<<min_S<<endl;
+    cout<<max_S;
+    
+}
