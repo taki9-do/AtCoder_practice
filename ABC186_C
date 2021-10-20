@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+
+int main(void){
+    int N,count=0;
+    cin>>N;
+    
+    for(int i=1;i<=N;i++){
+        string S_10=to_string(i);
+        if(S_10.find("7")!=string::npos){
+            count++;
+            continue;
+        }
+        stringstream SS;
+        SS<<oct<<i;
+        string S_8=SS.str();
+        if(S_8.find("7")!=string::npos){
+            count++;
+            continue;
+        }
+    }
+    
+    cout<<N-count;
+}
