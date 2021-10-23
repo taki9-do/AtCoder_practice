@@ -1,0 +1,19 @@
+vv#include <bits/stdc++.h>
+using namespace std;
+#include <atcoder/all>
+using namespace atcoder;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using P = pair<int,int>;
+
+int main() {
+  int l;
+  cin >> l;
+  __int128 ans = 1;
+  for (int i = 1; i <= 11; ++i) {
+    ans *= l-i;
+    ans /= i;
+  }
+  cout << ll(ans) << endl;
+  return 0;
+}
