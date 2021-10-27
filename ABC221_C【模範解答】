@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+int main(void){
+    // Your code here!
+    string N,str;
+    cin>>N;
+    ll max_value=0,temp1=0,temp2=0;
+    str=N;
+    sort(str.begin(),str.end());
+    
+    ll count=1;
+    //vector<string> root;
+    do {
+        for(int i=1;i<N.size();i++){
+            string a="",b="";
+            
+            for(int j=0;j<i;j++) a+=str[j];
+            for(int j=i;j<N.size();j++) b+=str[j];
+            
+            temp1=stoll(a);
+            temp2=stoll(b);
+            ll x=temp1*temp2;
+            max_value=max(max_value,x);
+        }
+        //cout<<count<<"回目："<<str<<";"<<max_value<<endl;
+        //root.push_back("0"+temp+"0");
+        //cout<<temp<<endl;
+        count++;
+    } while( next_permutation(str.begin(), str.end()) );
+    
+    cout<<max_value;
+}
