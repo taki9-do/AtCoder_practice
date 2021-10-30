@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+//長さ３だから、３！を求めてもよかった
+int main(void){
+    // Your code here!
+    string S;
+    cin>>S;
+    ll count=0;
+    sort(S.begin(), S.end());
+    do {
+        count++;
+    } while( next_permutation(S.begin(), S.end()) );
+    cout<<count;
+}
