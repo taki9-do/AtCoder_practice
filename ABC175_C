@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;
+    cin>>N;
+    vector<ll> L(N);
+    rep(i,N) cin>>L[i];
+    
+    ll count=0;
+    for(int x=0;x<N-2;x++){
+        for(int y=x+1;y<N-1;y++){
+            for(int z=y+1;z<N;z++){
+                if(L[x]!=L[y]&&L[y]!=L[z]&&L[x]!=L[z]){
+                    ll temp=max({L[x],L[y],L[z]});
+                    ll temp2=L[x]+L[y]+L[z]-temp;
+                    if(temp<temp2) count++;
+                    //cout<<temp;
+                }
+                
+            }
+            
+            
+            
+        }
+    }
+    //cout<<-1<<" "<<-1<<" "<<-1<<endl;
+    
+    cout<<count;
+}
