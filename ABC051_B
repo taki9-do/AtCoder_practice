@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll K,S;
+    cin>>K>>S;
+    
+    ll count=0;
+    for(int x=0;x<=K;x++){
+        for(int y=0;y<=K;y++){
+            if((x+y)<=S){
+                int z=S-(x+y);
+                if(z<=K){
+                    count++;
+                }
+            }
+            
+        }
+    }
+    
+    cout<<count;
+}
