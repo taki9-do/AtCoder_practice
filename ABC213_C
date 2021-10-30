@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+
+int main(void){
+    // Your code here!
+    ll H,W,N;
+    cin>>H>>W>>N;
+    vector<ll> A(N),B(N);
+    rep(i,N) cin>>A[i]>>B[i];
+    vector<ll> tempA=A,tempB=B;
+    
+    //座標圧縮において、行と列は互いに影響しない。
+    //ソートを用いる方法(lowr_bound)と、mapを用いる方法がある
+    
+    //要素のソート
+    sort(A.begin(),A.end());
+    sort(B.begin(),B.end());
+    //重複の削除
+    A.erase(unique(A.begin(), A.end()), A.end());
+    B.erase(unique(B.begin(),B.end()), B.end());
+    
+    map<ll,ll> mpA,mpB;
+    rep(i,A.size()) mpA[A[i]]=i+1;
+    rep(i,B.size()) mpB[B[i]]=i+1;
+    
+    rep(i,N){
+        cout<<mpA[tempA[i]]<<" "<<mpB[tempB[i]]<<endl;
+    }
+}
