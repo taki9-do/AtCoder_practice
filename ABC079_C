@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string S;
+    cin>>S;
+    int N=S.size();
+    
+    
+    //ll ans=0;
+    //ビット演算（1<<1=2,1<<2=4
+    //8回探索
+    for(int i=0;i<1<<N-1;i++){
+        //ll sm=0;
+        vector<int> x(N);
+        //一回あたり、４ビット
+        for(int j=0;j<N;j++){
+            //AND演算
+            //ビット bit に i 番目のフラグが立っているかどうか	if (bit & (1<<i))
+            //マイナス判定
+            if(i&(1<<j)) x[3-j]=-(S[3-j]-'0');
+            //プラス判定
+            else x[3-j]=(S[3-j]-'0');
+        }
+        //cout<<x[0]<<x[1]<<x[2]<<x[3]<<endl;
+        int sum=accumulate(x.begin(), x.end(), 0);
+        if(sum==7){
+            cout<<x[0];
+            for(int k=1;k<N;k++){
+                if(x[k]>=0) cout<<"+"<<x[k];
+                else if(x[k]<0) cout<<x[k];
+            }
+            cout<<"=7"<<endl;
+            return 0;
+        }
+        
+    }
+    
+}
