@@ -23,5 +23,6 @@ int main(void){
         else it_A++;
     }
     
+    
     cout<<min_diff<<endl;
 }
