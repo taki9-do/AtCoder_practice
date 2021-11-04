@@ -12,4 +12,5 @@ int main(void){
     ll ans=1;
     rep(i,N) ans=ans*max(c[i]-i,0)% 1000000007;
     cout<<ans;
+    
 }
