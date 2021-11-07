@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<ll> t(N),l(N),r(N);
+    rep(i,N) cin>>t[i]>>l[i]>>r[i];
+    ll count=0;
+    
+    for(int i=0;i<N-1;i++)for(int j=i+1;j<N;j++){
+        //cout<<i<<","<<j<<endl;
+        //区間 i が区間 j よりも左にある
+        //交わりがない
+        if(r[i]<l[j]) continue;
+        //交わりがある
+        if(r[i]==l[j]){
+            if(t[i]==2||t[i]==4) continue;
+            if(t[j]==3||t[j]==4) continue;
+        }
+        
+        ////区間 i が区間 j より右にある
+        if(r[j]<l[i]) continue;
+        if(r[j]==l[i]){
+            if(t[j]==2||t[j]==4) continue;
+            if(t[i]==3||t[i]==4) continue;
+        }
+        count++;
+        
+        
+    }
+    
+    cout<<count<<endl;
+}
