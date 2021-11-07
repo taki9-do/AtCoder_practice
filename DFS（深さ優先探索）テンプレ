@@ -3,6 +3,26 @@
 using namespace std;
 using Graph = vector<vector<int>>;
 
+//入力
+N M
+a0 b0
+a1 b1
+……
+aM−1 bM−1
+
+//定義
+seen: その頂点を検知済みかどうかを表す配列
+todo: 検知したがまだ訪問済みでない頂点の集合 (保留中の頂点の集合)
+
+//フロー
+1.seen 全体を false に初期化して、todo を空にする
+2.seen[s] = true として、todo に s を追加する
+3.todo が空になるまで以下を繰り返す:
+4.　todo から一つ頂点を取り出して v とする
+5.　T(v) の各要素 w に対して、
+6.　 　seen[w] = true であったならば、何もしない
+7.　 　そうでなかったら、seen[w] = true として、todo に w を追加する
+
 // 深さ優先探索
 vector<bool> seen;
 void dfs(const Graph &G, int v) {
