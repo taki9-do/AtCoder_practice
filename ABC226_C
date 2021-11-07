@@ -1,0 +1,46 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<ll> T(N),K(N);
+    vector<vector<ll>> A(N);
+    //rep(i,N) cin>>t[i]>>l[i]>>r[i];
+    
+    rep(i,N){
+        cin>>T[i]>>K[i];
+        rep(j,K[i]){
+            ll temp;
+            cin>>temp;
+            A.at(i).push_back(temp);
+        }
+    }
+    
+    ll ans=T[N-1];
+    vector<ll> stack;
+    rep(i,K[N-1]){
+        stack.push_back(A.at(N-1).at(i));
+    }
+    
+    /*rep(i,K[stack[0]-1]){
+            stack.push_back(A.at(stack[0]-1).at(i));
+    }*/
+    
+    while(stack.size()!=0){
+        ans+=T[stack[0]-1];
+        rep(i,K[stack[0]-1]){
+            auto result = find(stack.begin(), stack.end(), A.at(stack[0]-1).at(i));
+            if(result == stack.end()){
+                stack.push_back(A.at(stack[0]-1).at(i));
+            }
+            
+        }
+        //cout<<ans<<endl;
+        stack.erase(stack.begin());
+    }
+    //cout<<stack[3]<<endl;
+    cout<<ans<<endl;
+}
