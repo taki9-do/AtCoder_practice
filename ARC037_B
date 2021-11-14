@@ -14,7 +14,8 @@ bool dfs(const Graph &G,int v,int p){
     
     bool flag=true;
     for(auto nv:G[v]){
-        
+        //探索済みのものはfalseを返す。
+        //一回falseになるともうtrueは返せない。
         if(nv==p) continue;
         flag=flag&&dfs(G,nv,v);
     }
