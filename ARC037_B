@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+
+
+
+vector<bool> seen;
+
+bool dfs(const Graph &G,int v,int p){
+    if(seen[v]) return false;
+    seen[v]=true;
+    
+    bool flag=true;
+    for(auto nv:G[v]){
+        
+        if(nv==p) continue;
+        flag=flag&&dfs(G,nv,v);
+    }
+    return flag;
+}
+
+int main(void){
+    int N,M;
+    cin>>N>>M;
+    
+    Graph G(N);
+    rep(i,M){
+        int a,b;
+        cin>>a>>b;
+        a--;b--;
+        G[a].push_back(b);
+        G[b].push_back(a);
+    }
+    
+    seen.assign(N, false);
+    int count=0;
+    
+    rep(i,N){
+        if(seen[i]) continue;
+        if(dfs(G,i,-1)==true) count++;
+    }
+    
+    cout<<count<<endl;
+    
+}
