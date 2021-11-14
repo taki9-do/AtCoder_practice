@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+//const これをつけると、もう値を変更できない
+//0,up 1,right 2,down 3,left
+
+const int dx[4] = {1, 0, -1, 0};
+const int dy[4] = {0, 1, 0, -1};
+
+//※この順番だとだめらしい。
+//const int dx[4]={0,1,0-1};
+//const int dy[4]={1,0,-1,0};
+
+//int H,W;
+
+vector<string> field(10);
+vector<string> seen(10);
+
+void dfs(int h,int w,vector<string> temp_field){
+
+
+    seen[h][w]='o';
+    
+    for(int i=0;i<4;i++){
+        int nh=h+dy[i];
+        int nw=w+dx[i];
+        
+        if(nh<0||nh>=10||nw<0||nw>=10) continue;
+        if(temp_field[nh][nw]=='x') continue;
+        if(seen[nh][nw]=='o') continue;
+        dfs(nh,nw,temp_field);
+    }
+    
+}
+
+int main(void){
+    rep(i,10) cin>>field[i];
+        
+    rep(i,10)rep(j,10){
+        
+        vector<string> temp_field=field;
+        rep(k,10) seen[k]="xxxxxxxxxx";
+        
+        cout<<i<<","<<j<<endl;
+        
+        temp_field[i][j]='o';
+            
+        bool finished=false;
+        int sh,sw;
+        rep(k,10){
+            rep(l,10){
+                if(temp_field[k][l]=='o'){
+                    sh=k;
+                    sw=l;
+                    finished=true;
+                    break;
+                }
+            }
+            if(finished) break;
+        }
+            
+        dfs(sh,sw,temp_field);
+          
+        if(temp_field==seen){
+            cout<<"YES"<<endl;
+            return 0;
+        }
+        
+    }
+    
+    
+    cout<<"NO"<<endl;
+    
+}
