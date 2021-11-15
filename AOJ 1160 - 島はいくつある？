@@ -1,0 +1,71 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Field=vector<vector<int>>;
+
+//const これをつけると、もう値を変更できない
+//0,up 1,right 2,down 3,left
+
+
+//※この順番だとだめらしい。
+//const int dx[4]={0,1,0-1};
+//const int dy[4]={1,0,-1,0};
+
+//int H,W;
+
+//vector<vector<int>> field;
+vector<vector<int>> seen;
+int height,width;
+
+void dfs(int h,int w,vector<vector<int>> field){
+
+    seen[h][w]=1;
+    
+    for(int dy=-1;dy<=1;dy++){
+        for(int dx=-1;dx<=1;dx++){
+            int nh=h+dy;
+            int nw=w+dx;
+        
+            if(nh<0||nh>=height||nw<0||nw>=width) continue;
+            if(field[nh][nw]==0) continue;
+            if(seen[nh][nw]==1) continue;
+            dfs(nh,nw,field);
+        }
+    }
+    
+}
+
+int main(void){
+    
+    int w,h;
+    cin>>w>>h;
+    width=w,height=h;;
+    Field field(h);
+    seen.resize(h);
+    rep(i,h)rep(j,w){
+        int temp;
+        cin>>temp;
+        field[i].push_back(temp);
+        seen[i].push_back(0);
+    }
+    
+    //cout<<seen[0].at(0)<<seen[0].at(1)<<endl;;
+    //cout<<seen[1].at(0)<<seen[1].at(1)<<endl;;
+    
+    int count=0;
+        
+    rep(i,h)rep(j,w){
+        if(seen[i][j]==1) continue;
+        if(field[i][j]==0) continue;
+        dfs(i,j,field);
+        count++;
+    }
+    //cout<<field[0].at(0)<<field[0].at(1)<<endl;;
+    //cout<<field[1].at(0)<<field[1].at(1)<<endl;;
+    //cout<<seen[0].at(0)<<seen[0].at(1)<<endl;;
+    //cout<<seen[1].at(0)<<seen[1].at(1)<<endl;;
+    
+    cout<<count<<endl;
+    
+}
