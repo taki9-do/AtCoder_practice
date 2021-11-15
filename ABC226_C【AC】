@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+vector<bool> seen;
+ll ans=0;
+
+//GとTに「＆」入れて、参照渡しにするかしないかで、実行時間が超違う。
+//絶対に参照渡しにした方がいい。
+void dfs(int v,int p,Graph &G,vector<ll> &T){
+    //if(seen[v]) return;
+    seen[v]=true;
+    ans+=T[v];
+    for(auto nv:G[v]){
+        if(nv==p) continue;
+        if(seen[nv]) continue;
+        dfs(nv,v,G,T);
+    }
+    
+}
+
+int main(void){
+    // Your code here!
+    int N;
+    cin>>N;
+    vector<ll> T(N),K(N);
+    Graph A(N);
+    
+    seen.resize(N);
+    
+    //有効グラフの定義。
+    rep(i,N){
+        cin>>T[i]>>K[i];
+        rep(j,K[i]){
+            //cout<<i<<','<<j<<endl;
+            ll temp;
+            cin>>temp;
+            temp--;
+            A[i].push_back(temp);
+        }
+    }
+    
+    
+    dfs(N-1,-1,A,T);
+    
+    cout<<ans<<endl;
+}
