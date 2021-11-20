@@ -1,0 +1,35 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+using vec=vector<int>;
+int main(void){
+    // Your code here!
+    ll Q; cin>>Q;
+    vector<ll> t(Q),x(Q);
+    rep(i,Q) cin>>t[i]>>x[i];
+    ll N=pow(2,20);
+    vector<ll> A(N,-1);
+    
+    //cout<<N<<endl;;
+    
+    //ll count=0;
+    for(ll i=0;i<Q;i++){
+        if(t[i]==1){
+            ll h=x[i];
+            while(1){
+                if(A[h%N]==-1) break;
+                h++;
+            }
+            A[h%N]=x[i];
+            
+        }
+        else if(t[i]==2){
+            cout<<A[x[i]%N]<<endl;
+        }
+    }
+    
+    //for(auto nv:A) cout<<nv<<",";
+    //cout<<endl;
+}
