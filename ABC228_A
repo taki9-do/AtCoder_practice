@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+int main(void){
+    // Your code here!
+    int S,T,X;
+    cin>>S>>T>>X;
+    if(S>T) T+=24;
+    //------------------------
+    //ここが必要な理由が分からない。
+    if(X<S) X+=24;
+    //------------------------
+    if(S<=X&&X<T) cout<<"Yes";
+    else cout<<"No";
+}
