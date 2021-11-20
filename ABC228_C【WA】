@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+using vec=vector<int>;
+int main(void){
+    // Your code here!
+    int N,K; cin>>N>>K;
+    vec P(N);
+    rep(i,N){
+        int a,b,c; cin>>a>>b>>c;
+        P[i]=a+b+c;
+    }
+    
+    vec q=P;
+    sort(q.begin(),q.end(),greater<int>());
+    
+    ll border=q[K-1];
+    rep(i,N){
+        if(P[i]+300>=border) cout<<"Yes"<<endl;
+        else cout<<"No"<<endl;
+    }
+}
