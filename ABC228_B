@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+int main(void){
+    // Your code here!
+    ll N,X;
+    cin>>N>>X;
+    X--;
+    vector<ll> A(N);
+    rep(i,N){
+        cin>>A[i];
+        A[i]--;
+    }
+    vector<int> seen(N,0);
+    ll index=X;
+    
+    for(int i=0;i<N;i++){
+        if(seen[index]!=0){
+            cout<<i;
+            return 0;
+        }
+        else if(i==N-1) cout<<N;
+        else{
+            seen[index]=1;
+            index=A[index];
+        }
+    }
+    
+}
