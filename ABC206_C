@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<ll> A;
+    map<ll,ll> mp;
+    rep(i,N){
+        ll a; cin>>a;
+        mp[a]++;
+        if(mp[a]==1) A.push_back(a);
+    }
+    sort(A.begin(), A.end());
+    A.erase(unique(A.begin(), A.end()), A.end());
+    
+    ll ans=0;
+    ll x=0;
+    for(ll i=0;i<A.size();i++){
+        x+=mp[A[i]];
+        ans+=mp[A[i]]*(N-x);
+    }
+    
+    cout<<ans;
+    
+    //cout<<A.size();
+    
+    /*if(A.size()==2){
+        cout<<2;
+    }
+    else{
+        ll ans=1;
+        for(int i=A.size();i>A.size()-2;i--) ans*=i;
+        cout<<ans/2;
+    }*/
+    
+}
