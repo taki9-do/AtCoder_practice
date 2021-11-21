@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph=vector<vector<int>>;
+
+
+void dfs(const Graph &G,int &ans,int v,vector<bool> &seen){
+    
+    //行きがけ：ansの加算は行き帰りどっちで問題ない。
+    seen[v]=true;
+    
+    for(auto nv:G[v]){
+        if(seen[nv]) continue;
+        dfs(G,ans,nv,seen);
+    }
+    //帰りがけ
+    ans++;
+}
+
+int main(void){
+    // Your code here!
+    ll N,M;cin>>N>>M;
+    Graph G(N);
+    rep(i,M){
+        int a,b;cin>>a>>b;
+        a--;b--;
+        G[a].push_back(b);
+    }
+    
+    int ans=0;
+    for(int i=0;i<N;i++){
+        vector<bool> seen(N,false);
+        dfs(G,ans,i,seen);
+    }
+    cout<<ans;
+    
+}
