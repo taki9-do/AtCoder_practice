@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string s;cin>>s;
+    string oo,hatena,xx;
+    rep(i,s.size()){
+        if(s[i]=='x') xx+=to_string(i);
+        else if(s[i]=='?') hatena+=to_string(i);
+        else if(s[i]=='o') oo+=to_string(i);
+    }
+    
+    //cout<<"oo:"<<oo<<endl;
+    //cout<<"hatena:"<<hatena<<endl;
+    //cout<<"xx:"<<xx<<endl;
+    
+    
+    ll ans=0;
+    for(int i=0;i<10000;i++){
+        string x;
+        if(i<10) x="000"+to_string(i);
+        else if(i<100) x="00"+to_string(i);
+        else if(i<1000) x="0"+to_string(i);
+        else x=to_string(i);
+        
+        //×の数字を使ってないか。
+        bool flag_xx=false;
+        rep(i,x.size())for(auto nv:xx) if(x[i]==nv)flag_xx=true;
+        if(flag_xx) continue;
+        
+        //oの文字を全部使ってるか。
+        vector<bool> flag_oo(oo.size(),false);
+        rep(i,x.size())rep(j,oo.size()) if(x[i]==oo[j]) flag_oo[j]=true;
+        
+        bool flag=false;
+        for(auto nv:flag_oo) if(nv==false) flag=true;
+        if(flag) continue;
+        
+        ans++;
+    }
+    cout<<ans;
+    
+}
