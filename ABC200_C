@@ -1,0 +1,18 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<ll> A(N);
+    map<ll,ll> mp;
+    rep(i,N) cin>>A[i],mp[A[i]%200]++;
+    
+    
+    ll count=0;
+    rep(i,200) count+=mp[i]*(mp[i]-1)/2;
+    
+    
+    cout<<count;
+}
