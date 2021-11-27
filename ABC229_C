@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N,W;cin>>N>>W;
+    vector<pair<ll,ll>> cheeze(N);
+    rep(i,N){
+        cin>>cheeze[i].first>>cheeze[i].second;
+    }
+    sort(cheeze.begin(),cheeze.end(),greater{});
+    
+    ll ans=0;
+    
+    for(int i=0;i<N;i++){
+        if(W>0){
+            ans+=cheeze[i].first*min(W,cheeze[i].second);
+            W-=cheeze[i].second;
+        }
+    }
+    
+    cout<<ans;
+}
