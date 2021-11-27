@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string s1,s2;
+    cin>>s1>>s2;
+    
+    bool flag=false;
+    
+    if(s1[0]=='#'){
+        if(s2[0]=='#') flag=true;
+    }
+    if(s1[1]=='#'){
+        if(s2[1]=='#') flag=true;
+    }
+    
+    if(s1=="##"&&s2==".."){
+        flag=true;
+    }
+    else if(s1==".."&&s2=="##"){
+        flag=true;
+    }
+    
+    if(flag) cout<<"Yes";
+    else cout<<"No";
+    
+}
