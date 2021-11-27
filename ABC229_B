@@ -1,0 +1,24 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string A,B;
+    cin>>A>>B;
+    
+    reverse(A.begin(), A.end());
+    reverse(B.begin(), B.end());
+    
+    for(int i=0;i<max(A.size(),B.size());i++){
+        int ans=(A[i]-'0')+(B[i]-'0');
+        if(ans>9){
+            cout<<"Hard";
+            return 0;
+        }
+    }
+    
+    cout<<"Easy";
+    
+    
+}
