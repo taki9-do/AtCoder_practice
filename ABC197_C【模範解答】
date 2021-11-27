@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;cin>>N;
+    vector<ll> A(N);
+    rep(i,N)cin>>A[i];
+    
+    ll ans=1e11;
+    
+    
+    for(int i=0;i<1<<(N-1);i++){
+        ll ans_or=0,ans_xor=0;
+        for(int j=0;j<=N;j++){
+            if(j<N) ans_or|=A[j];
+            //N==1のため用
+            if(j==N||i&(1<<j))ans_xor ^=ans_or , ans_or = 0;
+        }
+        ans = min(ans, ans_xor);
+    }
+    
+    //ビット演算ではない方法
+    //間違い
+    /*for(int i=1;i<=N-1;i++){
+        vector<ll> or1=A,or2=A;
+        or1.erase(or1.begin()+i,or1.end());
+        or2.erase(or2.begin(),or2.begin()+i);
+        
+        ll ans_or1=0,ans_or2=0,ans_xor=0;
+        rep(j,or1.size()) ans_or1|=or1[j];
+        rep(k,or2.size()) ans_or2|=or2[k];
+        ans_xor=ans_or1^ans_or2;
+        ans=min(ans,ans_xor);
+        
+        cout<<i<<"回目"<<endl;
+        cout<<"or1;";
+        rep(j,or1.size())cout<<or1[j]<<" ";
+        cout<<endl;
+        cout<<"or2;";
+        rep(j,or2.size())cout<<or2[j]<<" ";
+        cout<<endl;
+        cout<<"ans_or1;"<<ans_or1<<"ans_or2;"<<ans_or2<<endl;
+        cout<<ans_xor<<endl;
+    }*/
+    
+    cout<<ans;
+}
