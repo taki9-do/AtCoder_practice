@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N,sum=0;cin>>N;
+    vector<ll> A(N),X(N);
+    ll mod=1000000000+7;
+    rep(i,N) {
+        cin>>A[i];
+        sum+=A[i];
+        sum%=mod;
+    }
+    
+    ll ans=0;
+    for(int i=0;i<N;i++){
+        sum-=A[i];
+        //これがなんで要るかわからない。//////
+        if (sum < 0) sum += mod;
+        ////////////////////////
+        ans+=A[i]*sum;
+        ans%=mod;
+        cout<<i<<":"<<sum<<endl;
+    }
+    
+    
+    
+    cout<<ans;
+    
+}
