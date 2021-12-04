@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string S,T="oxx";cin>>S;
+    rep(i,20) T+="oxx";
+    
+    rep(i,T.size()){
+        bool flag=true;
+        rep(j,S.size()){
+            if(S[j]!=T[i+j]) flag=false;
+        }
+        if(flag){
+            cout<<"Yes";
+            return 0;
+        } 
+    }
+    
+    cout<<"No";
+    
+}
