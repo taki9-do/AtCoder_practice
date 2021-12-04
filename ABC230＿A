@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    //string S;cin>>S;
+    int X;cin>>X;
+    if(X>=42) cout<<"AGC"<<'0'<<X+1;
+    else if(X<=9) cout<<"AGC"<<"00"<<X;
+    else cout<<"AGC"<<'0'<<X;
+}
