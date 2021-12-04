@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<ll> seed;
+    ll cnt=0;
+    
+    //a^b=Nであるとき
+    //a=10^(log10(N)/2)
+    //b=log(N)/log(a)
+    //と導出できる
+    
+    //範囲内のa^2である上限を求める
+    ll up1=pow(10,log10(N)/2);
+    for(ll i=2;i<=up1;i++){
+        ll x=pow(i,2);
+        if(x<=N) seed.push_back(i);
+    }
+    
+    //重複を無視する
+    map<ll,ll> mp;
+    for(auto nv:seed){
+        ll up2=log(N)/log(nv);
+        for(int i=2;i<=up2;i++) mp[pow(nv,i)]++;
+    }
+    
+    
+    
+    cout<<N-mp.size();
+}
