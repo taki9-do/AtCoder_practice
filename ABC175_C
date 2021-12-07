@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll X,K,D;cin>>X>>K>>D;
+    
+    if(X>0){
+        ll temp=X/D;
+        if(temp>=K) X-=K*D,K=0;
+        else K-=temp,X-=temp*D;
+    
+        if(K%2==0) cout<<X;
+        else cout<<abs(X-D);
+    }
+    else {
+        ll temp=(-X)/D;
+        if(temp>=K) X+=K*D,K=0;
+        else K-=temp,X+=temp*D;
+    
+        if(K%2==0) cout<<abs(X);
+        else cout<<abs(X+D);
+    }
+    
+    
+    
+}
