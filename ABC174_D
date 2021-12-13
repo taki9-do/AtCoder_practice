@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N;cin>>N;
+    string c;cin>>c;
+    
+    int l,r;
+    rep(i,N)if(c[i]=='W'){
+        l=i;break;
+    } 
+    rep(i,N) if(c[N-i-1]=='R'){
+        r=(N-1-i);break;
+    }
+    
+    if(l>r){
+        cout<<0;
+        return 0;
+    }
+    //cout<<l<<","<<r<<endl;
+    int cnt=0;
+    rep(i,N){
+        if(c[l]=='W'&&c[r]=='R') swap(c[l],c[r]),cnt++;
+        else{
+            if(c[l]!='W') l++;
+            if(c[r]!='R') r--;
+        }
+        
+        //cout<<cnt;
+        if(l>=r) break;
+    }
+    
+    cout<<cnt;
+}
