@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    int N,Q;cin>>N>>Q;
+    vector<int> A(N),x(Q);
+    map<int,int,greater<int>> mp,mp_x;
+    rep(i,N) cin>>A[i],mp[A[i]]++;
+    rep(i,Q) cin>>x[i],mp[x[i]]++,mp_x[x[i]]++;
+    sort(A.begin(),A.end(),greater<int>());
+    
+    //累積和
+    int temp=0;
+    for(auto &nv:mp){
+        nv.second=nv.second+temp;
+        temp=nv.second;
+    }
+    
+    int temp2=0;
+    for(auto &nv:mp_x){
+        nv.second=nv.second+temp2;
+        temp2=nv.second;
+    }
+    
+    
+    rep(i,Q){
+        cout<<mp[x[i]]-mp_x[x[i]]<<endl;;
+    }
+    
+    /*
+    for(auto nv:mp){
+        cout<<nv.first<<','<<nv.second<<endl;;
+    }*/
+    
+    /*rep(i,Q){
+        int cnt=0;
+        for(auto nv:mp_A){
+            if(nv.first<x[i]) break;
+            cnt+=nv.second;
+        }
+        cout<<cnt<<endl;;
+    }*/
+    
+    
+}
