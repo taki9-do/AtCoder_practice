@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    string ans;
+    
+    
+    while(N>0){
+        N--;
+        char c='a'+N%26;
+        ans+=c;
+        //cout<<c;
+        N/=26;
+    }
+    reverse(ans.begin(),ans.end());
+    cout<<ans;
+    
+     
+}
