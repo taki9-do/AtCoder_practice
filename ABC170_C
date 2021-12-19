@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+using Graph = vector<vector<int>>;
+vector<bool> seen,finished,hist;//histは訪問履歴
+bool roop=false;
+int main(void){
+    // Your code here!
+    int X,N;cin>>X>>N;
+    vector<bool> p(101,true);
+    rep(i,N){
+        int x;cin>>x;
+        p[x]=false;
+    }
+    
+    int ans;
+    for(int i=0;i<p.size();i++){
+        //小さい方の探索
+        if(p[X-i]){
+            ans=X-i;
+            break;
+        }
+        
+        //大きい方の探索
+        if(p[X+i]){
+            ans=X+i;
+            break;
+        }
+    }
+    
+    
+    cout<<ans;;
+    
+    //for(auto nv:p)cout<<nv<<endl;
+    
+}
