@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here
+    string S;cin>>S;
+    reverse(S.begin(),S.end());
+    //cout<<x;
+    if(S[0]=='3')cout<<"bon";
+    else if(S[0]=='0'||S[0]=='1'||S[0]=='6'||S[0]=='8')cout<<"pon";
+    else cout<<"hon";
+    
+}
