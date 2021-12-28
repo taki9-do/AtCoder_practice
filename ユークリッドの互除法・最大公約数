@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<ll> A(N);
+    rep(i,N) cin>>A[i];
+    
+    ll ans=A[0];
+    rep(i,N-1){
+        ll a=ans,b=A[i+1];
+        while(a>=1&&b>=1){
+            if(a<b) b=b%a;
+            else a=a%b;
+            //cout<<"A:"<<A<<",B:"<<B<<endl;
+        }
+        if(a) ans=a;
+        else ans=b;
+    }
+    
+    cout<<ans<<endl;
+    
+}
