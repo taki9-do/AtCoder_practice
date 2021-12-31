@@ -1,0 +1,16 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<ll> A(N);
+    map<ll,ll> mp;
+    rep(i,N) cin>>A[i],mp[A[i]]++;
+    
+    ll ans=0;
+    for(auto nv:mp) ans+=nv.second*(nv.second-1)/2;
+    
+    cout<<ans<<endl;
+}
