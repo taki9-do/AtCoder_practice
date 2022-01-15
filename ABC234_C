@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll K;cin>>K;
+    string ans;
+    while(K>1){
+        if(K%2==0) ans+='0';
+        else ans+='2';
+        K/=2;
+    }
+    ans+='2';
+    reverse(ans.begin(),ans.end());
+    cout<<ans;
+}
