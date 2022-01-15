@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+//setのイテレータは双方向イテレータ（例　itr--,itr++）
+//ランダムアクセスできない（例　itr+=3,itr-=5）
+
+
+int main(void){
+    // Your code here!
+    int N,K;cin>>N>>K;
+    vector<int> P(N);
+    set<int> st;
+    rep(i,N){
+        cin>>P[i];
+        if(i<K) st.insert(P[i]);
+    }
+    
+    //大きい方から何番目かを指定
+    auto itr=st.end();
+    rep(i,K) itr--;
+    
+    cout<<*itr<<endl;
+    
+    for(int i=K;i<N;i++){
+        //イテレータをずらす
+        st.insert(P[i]);
+        if(*itr<P[i]) itr++;
+        
+        cout<<*itr<<endl;
+    }
+}
