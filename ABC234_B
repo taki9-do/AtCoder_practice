@@ -1,0 +1,23 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    vector<int> x(N),y(N),z(N);
+    rep(i,N){
+        cin>>x[i]>>y[i];
+        z[i]=x[i]+y[i];
+    }
+    double ans=0;
+    rep(i,N)rep(j,N){
+        int X=(x[i]-x[j])*(x[i]-x[j]);
+        int Y=(y[i]-y[j])*(y[i]-y[j]);
+        double temp=sqrt(X+Y);
+        ans=max(ans,temp);
+    }
+    cout << fixed << setprecision(10);
+    cout<<ans;
+}
