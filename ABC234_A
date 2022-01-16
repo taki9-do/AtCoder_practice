@@ -1,0 +1,14 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+ll ft(ll t){
+    return t*t+2*t+3;
+}
+
+int main(void){
+    // Your code here!
+    ll t;cin>>t;
+    cout<<ft(ft(ft(t)+t)+ft(ft(t)));
+}
