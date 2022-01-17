@@ -16,6 +16,7 @@ void dfs(ll &ans,const Graph &L,ll pos,ll seki,ll &N,ll &X){
     }
 }
 
+
 int main(void){
     // Your code here!
     ll N,X;cin>>N>>X;
