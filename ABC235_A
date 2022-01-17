@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string xyz;cin>>xyz;
+    int abc=stoi(xyz);
+    int bca=(xyz[1]-'0')*100+(xyz[2]-'0')*10+(xyz[0]-'0');
+    int cab=(xyz[2]-'0')*100+(xyz[0]-'0')*10+(xyz[1]-'0');
+    std::cout << abc+bca+cab << std::endl;
+}
