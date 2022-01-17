@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph = vector<vector<int>>;
+
+void dfs(ll &ans,const Graph &L,ll pos,ll seki,ll &N,ll &X){
+    //終了条件
+    if(pos==N){
+        if(seki == X)ans++;
+        return;
+    }
+    for(ll c:L[pos]){
+        if(seki>X/c)continue;
+        dfs(ans,L,pos+1,seki*c,N,X);
+    }
+}
+
+int main(void){
+    // Your code here!
+    ll N,X;cin>>N>>X;
+    Graph L(N);
+    rep(i,N){
+        ll l;cin>>l;
+        L[i].assign(l,0);
+        rep(j,l) cin>>L[i][j];
+    }
+    ll ans=0;
+    dfs(ans,L,0,1,N,X);
+    
+    cout<<ans;
+}
