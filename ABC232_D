@@ -1,0 +1,49 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+vector<string> field;
+vector<string> seen;
+int ans=0;
+int H,W;
+
+// 2方向への移動ベクトル
+const int dx[2] = {0, 1};
+const int dy[2] = {1, 0};
+
+//fは探索の深さそのものを表す
+void dfs(int h,int w,int f){
+    //探索済み
+    seen[h][w]='o';
+    
+    for(int dir=0;dir<2;dir++){
+        int nh=h+dy[dir];
+        int nw=w+dx[dir];
+        
+        // 場外アウトしたり、移動先が壁の場合はスルー
+        if(nh<0||nh>=H||nw<0||nw>=W) continue;
+        if(field[nh][nw]=='#') continue;
+        //探索済みもスルー
+        if(seen[nh][nw]=='o') continue;
+        
+        dfs(nh,nw,f+1);
+    }
+    //深さの更新
+    ans=max(ans,f);
+}
+
+
+int main(void){
+    cin>>H>>W;
+    field.resize(H);
+    seen.resize(H);
+    rep(i,H){
+        cin>>field[i];
+        rep(j,W) seen[i]+='x';
+    }
+    
+    dfs(0,0,0);
+    cout<<ans+1;
+    
+}
