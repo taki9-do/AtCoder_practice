@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+#include <bits/stdc++.h>
+
+//入力文字列
+//12:34:56 header free_time free_refills
+
+int main(int argc, char *argv[]) {
+ 
+  string line;
+  int index = 1;
+  while (!cin.eof()) {
+    vector<string> X;
+    getline(cin, line);
+    //cout << "line[" << index++ << "]:" << line << "\n";
+    //入力文字列を空白区切りで配列に納める。
+    stringstream ss{line};
+    while (getline(ss, line, ' ') ){     // スペース（' '）で区切って，格納
+        X.push_back(line);
+    }
+    cout<<X[0];
+  }
+  return 0;
+}
