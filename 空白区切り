@@ -10,6 +10,8 @@ int main(int argc, char *argv[]) {
  
   string line;
   int index = 1;
+  //cin.eof()はbool型定義
+  //読み込んだものがEOFならtrue,それ以外ならfalse
   while (!cin.eof()) {
     vector<string> X;
     getline(cin, line);
