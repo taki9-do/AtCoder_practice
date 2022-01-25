@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    string s;cin>>s;
+    //true:黒石、false:白石
+    vector<bool> kifu={1,0};
+    for(int i=0;i<s.size();i++){
+        //黒石
+        if(i%2==0){
+            if(s[i]=='R') kifu.push_back(1);
+            else if(s[i]=='L') kifu.insert(kifu.begin(),1);
+        }
+        //白石
+        else{
+            if(s[i]=='R') kifu.push_back(0);
+            else if(s[i]=='L') kifu.insert(kifu.begin(),0);
+        }
+    }
+    
+    //左端に注目。
+    //左端が黒石だったら最も右の黒石の間はすべて黒石。それ以外は白
+    //白石も同様
+    int b=0,w=0;
+    if(kifu[0]==true&&kifu.back()==true) b=kifu.size();
+    else if(kifu[0]==false&&kifu.back()==false) w=kifu.size();
+    else{
+        if(kifu[0]==true){
+            for(int i=kifu.size()-1;i>0;i--){
+                if(kifu[i]==true){
+                    b=i+1;
+                    break;
+                }
+                w++;
+            }
+        }
+        else if(kifu[0]==false){
+            for(int i=kifu.size()-1;i>0;i--){
+                if(kifu[i]==false){
+                    w=i+1;
+                    break;
+                }
+                b++;
+            }
+        }
+    }
+    
+    cout<<b<<" "<<w;
+    //for(auto nv:kifu) cout<<nv;
+}
