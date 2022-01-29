@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+
+const string number[]={"zero","one","two","three","four","five","six","seven","eight","nine",
+"ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen",
+"twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety","hundred",
+"thousand","million","billion"};
+
+void trans(int s,int keta,bool &fis){
+    if(s>=100){
+        if(fis==true){
+            
+        }
+        cout<<number[s/100]<<" hundred";
+        s%=100;
+    }
+    if(s<20) cout<<" "<<number[s];
+    if(s>=20){
+        cout<<" "<<number[(s/10)+18];
+        s%=10;
+        cout<<" "<<number[s];
+    }
+    
+    if(keta==4) cout<< " billion ";
+    else if(keta==3) cout<< " million ";
+    else if(keta==2) cout<< " thousand ";
+    //cout<<s;
+}
+
+
+int main(void){
+    // Your code here!
+    ll X;cin>>X;
+    vector<int> v;
+    
+    
+    
+    while(X>0){
+        v.push_back(X%1000);
+        X/=1000;
+    }
+    
+    reverse(v.begin(),v.end());
+    int keta=v.size();
+    bool fis=true;
+    for(auto nv:v){
+        //string s=to_string(nv);
+        trans(nv,keta,fis);
+        keta--;
+    }
+    
+    //for(auto nv:v) cout<<nv<<endl;
+}
