@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+ll n,k;
+string s;
+
+void dfs(ll sp,ll &ans){
+    
+    //加算
+    ans++;
+    
+    for(int i=0;i<k;i++){
+        if((sp+i)>=s.size()) break;
+        s[sp+i]='w';
+    }
+    
+    //次の草の探索
+    ll nsp;
+    for(int i=sp+k;i<s.size();i++){
+        if(s[i]=='.'){
+            nsp=i;
+            break;
+        }
+    }
+    if(nsp<s.size()) dfs(nsp,ans);
+}
+
+int main(void){
+    // Your code here!
+    
+    cin>>n>>k>>s;
+    //int w=0,g=0,ans=0;
+    ll sp=0,ans=0;
+    
+    //開始位置の探索
+    //全部wの判定
+    bool flag_w=true;
+    for(int i=0;i<s.size();i++){
+        if(s[i]=='.'){
+            sp=i,flag_w=false;
+            break;
+        }
+    }
+    
+    //全部.の判定
+    bool flag_dot=false;
+    string temp(n,'.');
+    if(temp==s) flag_dot=true;
+    
+    //全部.の時
+    if(flag_dot) cout<<ceil((double)n/(double)k);
+    //全部wの時
+    else if(flag_w) cout<<0<<endl;
+    //深さ優先探索
+    else{
+        dfs(sp,ans);
+        cout<<ans<<endl;
+    }
+}
