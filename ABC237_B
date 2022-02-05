@@ -1,0 +1,20 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll H,W;cin>>H>>W;
+    vector<vector<int>> A(H, vector<int>(W));
+    rep(i,H) rep(j,W) cin >> A.at(i).at(j);
+    
+    vector<vector<int>> B(W, vector<int>(H));
+    rep(i,W){
+        rep(j,H){
+            cout<<A.at(j).at(i)<<" ";//B.at(i).at(j)= A.at(j).at(i);
+        }
+        cout<<"\n";
+    }
+    
+    
+}
