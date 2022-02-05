@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    ll sita=pow(-2,31),ue=pow(2,31);
+    if(sita<=N&&ue>N) cout<<"Yes";
+    else cout<<"No";
+    
+}
