@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+int main(void){
+    // Your code here!
+    string s,temp;cin>>s;
+    int n=s.size();
+    
+    //右のaの個数
+    int r_a=0;
+    for(int i=n-1;i>=0;i--){
+        if(s[i]=='a') r_a++;
+        else break;
+    }
+    //左のaの個数,半分まで
+    int l_a=0;
+    for(int i=0;i<n;i++){
+        if(s[i]=='a') l_a++;
+        else break;
+    }
+    //全部aだったらYESで終了
+    if(r_a==n){
+        cout<<"Yes";
+        return 0;
+    }
+    //左のaが元から多かったら終了
+    else if(l_a>r_a){
+        cout<<"No";
+        return 0;
+    }
+    
+    //左右のaの部分をわざわざ判定する必要がない。
+    //右のa>左のaの場合がある。
+    for (int i = l_a; i < (n - r_a); i++) {
+        if (s[i] != s[l_a + n - r_a - i - 1]) {
+			cout << "No" << endl;
+			return 0;
+		}
+	}
+	cout << "Yes" << endl;
+    
+}
