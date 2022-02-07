@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    ll N;cin>>N;
+    vector<int> A(N),pizza={360};
+    rep(i,N) cin>>A[i];
+    
+    int sum=0;
+    for(int i=0;i<A.size();i++){
+        sum+=A[i];
+        if(sum>360) sum-=360;
+        for(int j=0;j<pizza.size();j++){
+            auto it=pizza.begin()+j;
+            if(sum<*it){
+                pizza.insert(it,sum);
+                break;
+            }
+        }
+    }
+    
+    int ans=0;
+    for(int i=pizza.size()-1;i>=0;i--){
+        if(i==0) ans=max(ans,pizza[i]);
+        else ans=max(ans,pizza[i]-pizza[i-1]);
+        //cout<<nv<<endl;
+    }
+    
+    cout<<ans;
+}
