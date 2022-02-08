@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    // Your code here!
+    ll N;cin>>N;
+    string S;cin>>S;
+    list<int> A={0};
+    
+    //双方向リストであれば簡単に実装できる。
+    //vectorとlistは似ているが、性質がちょっと違う
+    //vector:末尾の挿入・削除はO(１)だが、それ以外の要素の参照は長さに比例してしまう。
+    //list:どの位置のアクセスもO（１）でできる。
+    //ランダムアクセスはvectorの方が圧倒的に早いが、
+    //任意の位置の挿入・削除はlistの方が圧倒的に良い。
+    //ただし、list[i]のような参照ができないので、注意するべき。
+    auto it=A.end();
+    for(int i=0;i<N;i++){
+        if(S[i]=='L') it--;
+        A.insert(it,i+1);
+    }
+    
+    for(auto nv:A) cout<<nv<<" ";
+}
