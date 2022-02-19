@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+int main(void){
+    ll x1,y1,x2,y2;cin>>x1>>y1>>x2>>y2;
+    double d=pow(x2-x1,2)+pow(y2-y1,2);
+    //cout<<d;
+    if(d>20) cout<<"No";
+    else if(d==0||d==2||d==4||d==10||d==16||d==18||d==20) cout<<"Yes";
+    else cout<<"No";
+}
