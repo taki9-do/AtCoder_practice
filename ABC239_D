@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using namespace std;
+using ll = long long;
+
+//素数判定の関数
+bool prime_number(int x){
+    vector a={
+        2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,
+        101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199
+    };
+    auto itr=find(a.begin(),a.end(),x);
+    if(itr==a.end()) return false;
+    else return true;
+}
+
+int main(void){
+    ll A,B,C,D;cin>>A>>B>>C>>D;
+    
+    for(int i=A;i<=B;i++){
+        //高橋君がiを選ぶと青木君が勝つかの判定
+        bool aoki=false;
+        for(int j=C;j<=D;j++){
+            //素数判定、素数になった時点で脱出
+            if(prime_number(i+j)){
+                aoki=true;
+                break;
+            }
+        }
+        //iの時青木君が勝てなかったらそれを出せばいい。
+        if(!aoki){
+            cout<<"Takahashi";
+            return 0;
+        }
+    }
+    //青木君のが絶対有利
+    cout<<"Aoki";
+    
+}
