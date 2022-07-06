@@ -1,0 +1,14 @@
+# coding: utf-8
+# Your code here!
+
+K=int(input())
+HH=21 if K<60 else 22
+MM=K%60
+
+print("{}:{:02}".format(HH,MM))
+
+"""from datetime import datetime, timedelta
+begin = datetime(2022, 7, 2, hour=21)
+delta = timedelta(minutes=int(input()))
+answer = begin + delta
+print(answer.strftime('%H:%M'))"""
