@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+using ll = long long;
+using Graph = vector<vector<int>>;
+
+int main(void){
+    // Your code here!
+    //無向グラフの実装
+    int N,M;cin>>N>>M;
+    vector<vector<bool>> G(N,vector<bool>(N));
+    rep(i,M){
+        int a,b;cin>>a>>b;a--;b--;
+        G[a][b]=true;
+        G[b][a]=true;
+        //G[a].push_back(b);
+        //G[b].push_back(a);
+    }
+    
+    int count=0;
+    for(int i=0;i<N-2;i++){
+        for(int j=i+1;j<N-1;j++){
+            for(int k=j+1;k<N;k++){
+                if(G[i][j] and G[j][k] and G[k][i]) count++;
+            }
+        }
+    }
+    
+    cout<<count;
+
+}
