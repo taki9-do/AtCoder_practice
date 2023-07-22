@@ -1,0 +1,20 @@
+# coding: utf-8
+# Your code here!
+N=input()
+S=input()
+A=False
+B=False
+C=False
+count=0
+
+for a in S:
+    count+=1
+    if(a=='A'):
+        A=True
+    elif(a=='B'):
+        B=True
+    elif(a=='C'):
+        C=True
+    if(A&B&C):
+        print(count)
+        break;
