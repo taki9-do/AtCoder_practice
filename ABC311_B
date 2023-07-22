@@ -1,0 +1,26 @@
+# coding: utf-8
+# Your code here!
+N,D=map(int,input().split())
+#D=input()
+S=[]
+
+X=[True]*D
+
+
+for _ in range(N):
+    S.append(input())
+    for j in range(D):
+        if(S[_][j]=='x'):
+            X[j]=False
+        
+
+count=0;
+max_value=0;
+for _ in range(D):
+    if(X[_]==True):
+        count+=1;
+        max_value=max(max_value,count)
+    else:
+        count=0;
+
+print(max_value)
